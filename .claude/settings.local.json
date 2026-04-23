@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(conky -c /home/amal/.configurations/conky/.config/conky/clock.conkyrc)",
+      "Bash(kill %1)",
+      "Bash(wait)",
+      "Bash(fc-list)",
+      "Bash(xwininfo -root -tree)",
+      "Bash(xrandr)",
+      "Bash(xdpyinfo)",
+      "Bash(pkill conky *)",
+      "Bash(conky --version)",
+      "Bash(chmod +x *)",
+      "Bash(bash /home/amal/.configurations/conky/.config/conky/start_conky.sh)",
+      "Bash(xdpyinfo -ext XINERAMA)",
+      "Bash(xwininfo -id 0x800002)"
+    ]
+  }
+}

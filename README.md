@@ -4,7 +4,7 @@
 
 ```bash
 sudo apt update
-sudo apt isntall stow
+sudo apt install stow
 ```
 
 - Verify installations
@@ -24,6 +24,7 @@ mkdir -p nvim/.config
 mkdir -p tmux
 mkdir -p zsh
 mkdir -p wezterm
+mkdir -p conky/.config
 
 # Move your actual configs into these folders
 # Note: Keep the internal structure identical to your home folder
@@ -31,8 +32,19 @@ mv ~/.config/nvim nvim/.config/
 mv ~/.tmux.conf tmux/
 mv ~/.zshrc zsh/
 mv ~/.wezterm.lua wezterm/
+mv ~/.config/conky conky/.config/
 ```
-- Stow your configurations
+
+## Initialize the repo
+
+```bash
+chmod +x init.sh
+./init.sh
+```
+
+This writes `~/.stowrc` with the correct target and stows every top-level package in this repository.
+
+## Stow your configurations manually
 
 ```bash
 stow nvim
@@ -45,9 +57,8 @@ stow wezterm
 - `stow *` : Add everything (run on top level folder)
 - `stow -D nvim` : Remove link
 - `stow -R nvim` : Refresh link
-- `stow -nv nvim` : Stimulate dry run
+- `stow -nv nvim` : Simulate a dry run
 
 ## Tips
 
-- Create  a file named claeed `~/.stowrc` and add `--target=$HOME` to ensure stow always target home directory
-
+- Create a file named `~/.stowrc` and add `--target=$HOME` to ensure Stow always targets your home directory
