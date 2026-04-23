@@ -1,0 +1,22 @@
+(defpoll time :interval "10s"
+  "date '+%H:%M %p'")
+
+(defpoll date :interval "1h"
+  "date '+%A, %d %B %Y'")
+
+(defwindow clock
+  :monitor 0
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "400px"
+                      :height "200px"
+                      :anchor "center center")
+  :stacking "bg"
+  :windowtype "desktop"
+  :wm-ignore true
+(clock_layout))
+
+(defwidget clock_layout []
+  (box :class "main-box" :orientation "v" :space-evenly false
+    (label :class "time" :text time)
+    (label :class "date" :text date)))

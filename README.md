@@ -25,6 +25,7 @@ mkdir -p tmux
 mkdir -p zsh
 mkdir -p wezterm
 mkdir -p conky/.config
+mkdir -p eww/.config
 
 # Move your actual configs into these folders
 # Note: Keep the internal structure identical to your home folder
@@ -33,6 +34,7 @@ mv ~/.tmux.conf tmux/
 mv ~/.zshrc zsh/
 mv ~/.wezterm.lua wezterm/
 mv ~/.config/conky conky/.config/
+mv ~/.config/eww eww/.config
 ```
 
 ## Initialize the repo
@@ -51,6 +53,8 @@ stow nvim
 stow tmux
 stow zsh
 stow wezterm
+stow conky
+stow eww
 ```
 ## Some commands
 
