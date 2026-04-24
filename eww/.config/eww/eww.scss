@@ -1,5 +1,11 @@
+window {
+  background-color: rgba(0, 0, 0, 0);
+}
+
 .main-box {
+  background-color: transparent;
   color: white;
+  padding: 12px 18px;
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Helps visibility on light wallpapers */
 }
 

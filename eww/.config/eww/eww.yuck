@@ -5,13 +5,12 @@
   "date '+%A, %d %B %Y'")
 
 (defwindow clock
-  :monitor 0
-  :geometry (geometry :x "0%"
-                      :y "0%"
+  :geometry (geometry :x "24px"
+                      :y "24px"
                       :width "400px"
                       :height "200px"
-                      :anchor "center center")
-  :stacking "bg"
+                      :anchor "top right")
+  :stacking "bottom"
   :windowtype "desktop"
   :wm-ignore true
 (clock_layout))

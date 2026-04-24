@@ -13,7 +13,19 @@
       "Bash(chmod +x *)",
       "Bash(bash /home/amal/.configurations/conky/.config/conky/start_conky.sh)",
       "Bash(xdpyinfo -ext XINERAMA)",
-      "Bash(xwininfo -id 0x800002)"
+      "Bash(xwininfo -id 0x800002)",
+      "Bash(mkdir -p /home/amal/.configurations/eww/.config/eww)",
+      "Bash(mv /home/amal/.configurations/eww/.config/eww.scss /home/amal/.configurations/eww/.config/eww/eww.scss)",
+      "Bash(mv /home/amal/.configurations/eww/.config/eww.yuck /home/amal/.configurations/eww/.config/eww/eww.yuck)",
+      "Bash(rm /home/amal/.config/eww/eww.scss /home/amal/.config/eww/eww.yuck)",
+      "Bash(rmdir /home/amal/.config/eww)",
+      "Bash(stow eww *)",
+      "Bash(eww open *)",
+      "Bash(eww -c ~/.config/eww open clock)",
+      "Bash(eww logs *)",
+      "Bash(eww kill *)",
+      "Bash(xargs cat *)",
+      "Bash(eww active-windows *)"
     ]
   }
 }

@@ -7,62 +7,74 @@ sudo apt update
 sudo apt install stow
 ```
 
-- Verify installations
+Verify:
 
 ```bash
 stow --version
 ```
 
-## Move all the configurations
+## Packages
+
+| Directory | Symlink target | Notes |
+|-----------|---------------|-------|
+| `nvim/` | `~/.config/nvim/` | Full Neovim config |
+| `tmux/` | `~/.tmux.conf` | Mouse support, scroll-to-copy-mode |
+| `zsh/` | `~/.zshrc` | zsh-autosuggestions, fnm, oh-my-posh |
+| `wezterm/` | `~/.wezterm.lua` | JetBrainsMono Nerd Font, Catppuccin Mocha |
+| `conky/` | `~/.config/conky/` | Conky clock overlay |
+| `eww/` | `~/.config/eww/`, `~/.config/autostart/` | eww clock widget, autostarts on login |
+
+## Setup
+
+Clone the repo and run the init script:
 
 ```bash
-mkdir ~/.configurations
+git clone <repo-url> ~/.configurations
+cd ~/.configurations
+chmod +x init.sh
+./init.sh
+```
+
+This writes `~/.stowrc` with `--target=$HOME` and stows every top-level package automatically.
+
+## Move existing configs into the repo
+
+```bash
 cd ~/.configurations
 
-# Create folders named after the 'packages' you want to manage
 mkdir -p nvim/.config
 mkdir -p tmux
 mkdir -p zsh
 mkdir -p wezterm
 mkdir -p conky/.config
-mkdir -p eww/.config
+mkdir -p eww/.config/eww
 
-# Move your actual configs into these folders
-# Note: Keep the internal structure identical to your home folder
 mv ~/.config/nvim nvim/.config/
 mv ~/.tmux.conf tmux/
 mv ~/.zshrc zsh/
 mv ~/.wezterm.lua wezterm/
 mv ~/.config/conky conky/.config/
-mv ~/.config/eww eww/.config
+mv ~/.config/eww/* eww/.config/eww/
 ```
 
-## Initialize the repo
+## Stow commands
 
 ```bash
-chmod +x init.sh
-./init.sh
+stow nvim        # Apply a single package
+stow *           # Apply all packages (run from ~/.configurations)
+stow -D nvim     # Remove a package's symlinks
+stow -R nvim     # Re-create symlinks (useful after moving files)
+stow -nv nvim    # Dry run to preview changes
 ```
 
-This writes `~/.stowrc` with the correct target and stows every top-level package in this repository.
+> **Note:** Stow may print `BUG in find_stowed_path` warnings related to Steam's absolute symlinks in `$HOME`. These are harmless and do not affect the stow operation.
 
-## Stow your configurations manually
+## eww clock
+
+The eww package includes a clock widget that displays on all connected monitors and autostarts on login via `~/.config/autostart/eww-clock.desktop`.
+
+To start it manually:
 
 ```bash
-stow nvim
-stow tmux
-stow zsh
-stow wezterm
-stow conky
-stow eww
+~/.config/eww/launch.sh
 ```
-## Some commands
-
-- `stow *` : Add everything (run on top level folder)
-- `stow -D nvim` : Remove link
-- `stow -R nvim` : Refresh link
-- `stow -nv nvim` : Simulate a dry run
-
-## Tips
-
-- Create a file named `~/.stowrc` and add `--target=$HOME` to ensure Stow always targets your home directory
