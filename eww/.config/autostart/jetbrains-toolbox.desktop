@@ -1,6 +1,6 @@
 [Desktop Entry]
 Icon=toolbox
-Exec=/home/amal/Downloads/jetbrains-toolbox-3.4.3.81140/jetbrains-toolbox-3.4.3.81140/bin/jetbrains-toolbox --minimize
+Exec=/home/amal/Applications/jetbrains-toolbox-3.4.3.81140/bin/jetbrains-toolbox --minimize
 Version=1.0
 Type=Application
 Categories=Development
