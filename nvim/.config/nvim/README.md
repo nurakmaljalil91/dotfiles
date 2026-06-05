@@ -36,6 +36,7 @@ This is a professional, modularized Neovim configuration based on `kickstart.nvi
 - **Nerd Font**: Required for icons.
 - **Yazi**: Must be installed on your system for the Yazi integration.
 - **CMake & LLVM/Clang**: For C++ intelligence and building.
+- **tree-sitter CLI**: Required by the `nvim-treesitter` main branch to compile parsers. Install with `sudo pacman -S tree-sitter` on Arch/CachyOS. Update using command `:TSUpdate`.
 
 ## ⌨️ Quick Shortcuts
 
