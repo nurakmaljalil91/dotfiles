@@ -23,6 +23,9 @@ stow --version
 | `wezterm/` | `~/.wezterm.lua` | JetBrainsMono Nerd Font, Catppuccin Mocha |
 | `conky/` | `~/.config/conky/` | Conky clock overlay |
 | `eww/` | `~/.config/eww/`, `~/.config/autostart/` | eww clock widget, autostarts on login |
+| `hypr/` | `~/.config/hypr/` | Hyprland compositor config, scripts |
+| `waybar/` | `~/.config/waybar/` | Waybar config, style, scripts, power menu |
+| `rofi/` | `~/.config/rofi/` | Rofi launcher, applets, powermenu, themes |
 
 ## Setup
 
@@ -55,6 +58,12 @@ mv ~/.zshrc zsh/
 mv ~/.wezterm.lua wezterm/
 mv ~/.config/conky conky/.config/
 mv ~/.config/eww/* eww/.config/eww/
+mkdir -p hypr/.config
+mv ~/.config/hypr hypr/.config/
+mkdir -p waybar/.config
+mv ~/.config/waybar waybar/.config/
+mkdir -p rofi/.config
+mv ~/.config/rofi rofi/.config/
 ```
 
 ## Stow commands

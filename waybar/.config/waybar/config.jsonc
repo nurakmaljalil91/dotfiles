@@ -1,0 +1,75 @@
+// -*- mode: jsonc -*-
+{
+    "height": 32,
+    "spacing": 0,
+    "modules-left": [
+        "custom/distro",
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "network",
+        "pulseaudio",
+        "battery",
+        "custom/power"
+    ],
+
+    // ── Left ──────────────────────────────────────────────
+    "custom/distro": {
+        "format": "󰣇",
+        "tooltip": false
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{id}",
+        "on-click": "activate"
+    },
+
+    // ── Center ──────────────────────────────────────────
+    "clock": {
+        "format": "󰥔 {:%H:%M   󰃭 %a, %d %b %Y}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    // ── Right ──────────────────────────────────────────
+    "network": {
+        "format-wifi": "󰖩  {essid} {signalStrength}%  󰇚{bandwidthDownBits}  󰕒{bandwidthUpBits}",
+        "format-ethernet": "󰈀  {ipaddr}",
+        "format-disconnected": "󰤮  No Network",
+        "format-linked": "󰌹  No IP",
+        "tooltip-format": "{ifname}: {ipaddr}\nGateway: {gwaddr}\nStrength: {signalStrength}%",
+        "on-click": "bash ~/.config/waybar/scripts/wifi_menu.sh"
+    },
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "󰝟  Muted",
+        "format-icons": {
+            "headphone": "󰋋",
+            "headset": "󰱕",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pavucontrol",
+        "scroll-step": 5
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}  {capacity}%",
+        "format-charging": "󰂄  {capacity}%",
+        "format-plugged": "󰚥  {capacity}%",
+        "format-full": "󰁹  Full",
+        "format-icons": ["󰂎", "󰁺", "󰁽", "󰂁", "󰁹"],
+        "tooltip-format": "{timeTo}\nCycles: {cycles}"
+    },
+    "custom/power": {
+        "format": "⏻",
+        "tooltip": false,
+        "on-click": "~/.config/waybar/scripts/power_menu.sh"
+    }
+}

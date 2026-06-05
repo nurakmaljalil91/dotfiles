@@ -1,0 +1,155 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", FontAwesome, Roboto, sans-serif;
+    font-size: 13px;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: #dee3e6;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/* ── Distro icon pill ────────────────────────────────────────────── */
+#custom-distro {
+    margin: 4px 5px;
+    padding: 6px 14px;
+    background-color: #1b2023;
+    border-radius: 20px;
+    color: #88d1ec;
+    font-size: 18px;
+}
+
+/* ── Workspaces pill ─────────────────────────────────────────────── */
+#workspaces {
+    margin: 4px 5px;
+    padding: 4px 6px;
+    background-color: #1b2023;
+    border-radius: 20px;
+}
+
+#workspaces button {
+    min-width: 28px;
+    padding: 0 6px;
+    margin: 0 2px;
+    background: transparent;
+    border-radius: 16px;
+    color: #bfc8cc;
+    border: none;
+    box-shadow: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+#workspaces button:hover {
+    background: #303638;
+    color: #88d1ec;
+    box-shadow: none;
+}
+
+#workspaces button.active {
+    padding: 0 14px;
+    background-color: #88d1ec;
+    color: #003544;
+}
+
+#workspaces button.urgent {
+    color: #f38ba8;
+}
+
+#workspaces button.empty {
+    color: #40484c;
+}
+
+/* ── Clock pill ──────────────────────────────────────────────────── */
+#clock {
+    margin: 4px 5px;
+    padding: 6px 16px;
+    background-color: #1b2023;
+    border-radius: 20px;
+    color: #b3cad4;
+    font-weight: 500;
+}
+
+/* ── Network pill ────────────────────────────────────────────────── */
+#network {
+    margin: 4px 5px;
+    padding: 6px 14px;
+    background-color: #1b2023;
+    border-radius: 20px;
+    color: #88d1ec;
+    font-weight: 500;
+}
+
+#network.disconnected {
+    color: #f38ba8;
+}
+
+/* ── Audio pill ──────────────────────────────────────────────────── */
+#pulseaudio {
+    margin: 4px 5px;
+    padding: 6px 14px;
+    background-color: #1b2023;
+    border-radius: 20px;
+    color: #a6e3a1;
+    font-weight: 500;
+}
+
+#pulseaudio.muted {
+    color: #8a9296;
+}
+
+/* ── Battery pill ────────────────────────────────────────────────── */
+#battery {
+    margin: 4px 5px;
+    padding: 6px 16px;
+    background-color: #1b2023;
+    border-radius: 20px;
+    color: #b3cad4;
+    font-weight: 500;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: #a6e3a1;
+}
+
+#battery.warning:not(.charging) {
+    color: #f9e2af;
+}
+
+@keyframes blink {
+    to { color: #f38ba8; }
+}
+
+#battery.critical:not(.charging) {
+    color: #f38ba8;
+    animation-name: blink;
+    animation-duration: 0.6s;
+    animation-timing-function: steps(8);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* ── Power pill ──────────────────────────────────────────────────── */
+#custom-power {
+    margin: 4px 5px;
+    padding: 6px 14px;
+    background-color: #1b2023;
+    border-radius: 20px;
+    color: #f38ba8;
+    font-size: 15px;
+}
+
+#custom-power:hover {
+    background-color: #252b2d;
+    color: #eba0ac;
+}
