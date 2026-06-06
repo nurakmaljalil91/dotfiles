@@ -9,6 +9,7 @@ return {
       'mason-org/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
       { 'j-hui/fidget.nvim', opts = {} },
+      'Hoffs/omnisharp-extended-lsp.nvim',
     },
     config = function()
       vim.api.nvim_create_autocmd('LspAttach', {
@@ -24,6 +25,18 @@ return {
           map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
           local client = vim.lsp.get_client_by_id(event.data.client_id)
+          if client and client.name == 'omnisharp' then
+            map('grr', require('omnisharp_extended').lsp_references, '[G]oto [R]eferences')
+            map('gd', require('omnisharp_extended').lsp_definition, '[G]oto [D]efinition')
+            map('gi', require('omnisharp_extended').lsp_implementation, '[G]oto [I]mplementation')
+            map('gD', require('omnisharp_extended').lsp_type_definition, 'Type [D]efinition')
+          else
+            map('grr', vim.lsp.buf.references, '[G]oto [R]eferences')
+            map('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
+            map('gi', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
+            map('gD', vim.lsp.buf.type_definition, 'Type [D]efinition')
+          end
+
           if client and client:supports_method('textDocument/documentHighlight', event.buf) then
             local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
             vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
@@ -78,7 +91,7 @@ return {
               enableImportCompletion = true,
             },
           },
-          cmd = { 'dotnet', vim.fn.stdpath 'data' .. '/mason/bin/omnisharp' },
+          cmd = { vim.fn.stdpath 'data' .. '/mason/bin/OmniSharp' },
         },
         stylua = {},
         lua_ls = {
