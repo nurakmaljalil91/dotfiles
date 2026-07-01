@@ -25,7 +25,8 @@
       "Bash(eww logs *)",
       "Bash(eww kill *)",
       "Bash(xargs cat *)",
-      "Bash(eww active-windows *)"
+      "Bash(eww active-windows *)",
+      "Bash(dotnet --version)"
     ]
   }
 }
