@@ -8,7 +8,7 @@ end
 
 -- Appearance
 config.color_scheme = "Catppuccin Mocha" -- One of the best for dev work
-config.window_background_opacity = 0.90 -- Slightly transparent for that Linux look
+-- config.window_background_opacity = 0.90 -- Slightly transparent for that Linux look
 config.enable_tab_bar = false
 
 config.window_decorations = "NONE"
