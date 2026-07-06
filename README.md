@@ -21,8 +21,8 @@ stow --version
 | `tmux/` | `~/.tmux.conf` | Mouse support, scroll-to-copy-mode |
 | `zsh/` | `~/.zshrc` | zsh-autosuggestions, fnm, oh-my-posh |
 | `wezterm/` | `~/.wezterm.lua` | JetBrainsMono Nerd Font, Catppuccin Mocha |
-| `conky/` | `~/.config/conky/` | Conky clock overlay |
-| `eww/` | `~/.config/eww/`, `~/.config/autostart/` | eww clock widget, autostarts on login |
+| `conky/` | `~/.config/conky/` | Conky clock overlay (X11 only, kept for reference) |
+| `eww/` | `~/.config/eww/`, `~/.config/autostart/` | eww clock widget (Wayland/Hyprland), autostarts on login |
 | `hypr/` | `~/.config/hypr/` | Hyprland compositor config, scripts |
 | `waybar/` | `~/.config/waybar/` | Waybar config, style, scripts, power menu |
 | `rofi/` | `~/.config/rofi/` | Rofi launcher, applets, powermenu, themes |
@@ -80,10 +80,14 @@ stow -nv nvim    # Dry run to preview changes
 
 ## eww clock
 
-The eww package includes a clock widget that displays on all connected monitors and autostarts on login via `~/.config/autostart/eww-clock.desktop`.
+The eww package includes a clock widget that displays on all connected monitors and autostarts on login via `~/.config/autostart/eww-clock.desktop` (picked up automatically by the systemd `xdg-desktop-autostart` mechanism used on Hyprland).
+
+The widget is defined as a Wayland layer-shell surface (`:layer "background"`, `:namespace "eww-clock"`), so it renders behind normal windows without Hyprland ever managing it as a tiled/focusable window — no window rules needed. This replaces the old X11-only `conky` clock, which doesn't integrate cleanly with Hyprland.
 
 To start it manually:
 
 ```bash
 ~/.config/eww/launch.sh
 ```
+
+Requires the `eww` package (AUR) with `gtk-layer-shell` support.

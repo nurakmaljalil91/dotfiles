@@ -2,17 +2,20 @@
   "date '+%H:%M %p'")
 
 (defpoll date :interval "1h"
-  "date '+%A, %d %B %Y'")
+  "LC_TIME=en_US.utf8 date '+%A, %d %B %Y'")
 
 (defwindow clock
+  :monitor 0
   :geometry (geometry :x "24px"
                       :y "24px"
                       :width "400px"
                       :height "200px"
                       :anchor "top right")
-  :stacking "bottom"
-  :windowtype "desktop"
-  :wm-ignore true
+  :stacking "bg"
+  :layer "background"
+  :exclusive false
+  :focusable false
+  :namespace "eww-clock"
 (clock_layout))
 
 (defwidget clock_layout []
