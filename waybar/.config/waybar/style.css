@@ -93,6 +93,29 @@ window#waybar.hidden {
     color: #f38ba8;
 }
 
+/* ── Bluetooth pill ──────────────────────────────────────────────── */
+#bluetooth {
+    margin: 4px 5px;
+    padding: 6px 14px;
+    background-color: #1b2023;
+    border-radius: 20px;
+    color: #89b4fa;
+    font-weight: 500;
+}
+
+#bluetooth.off,
+#bluetooth.disabled {
+    color: #8a9296;
+}
+
+#bluetooth.connected {
+    color: #a6e3a1;
+}
+
+#bluetooth:hover {
+    background-color: #252b2d;
+}
+
 /* ── Audio pill ──────────────────────────────────────────────────── */
 #pulseaudio {
     margin: 4px 5px;

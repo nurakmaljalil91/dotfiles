@@ -15,6 +15,10 @@ hl.env("WLR_NO_HARDWARE_CURSORS", "1")
 hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
 hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("HYPRSHOT_DIR", os.getenv("HOME") .. "/Pictures/Screenshots")
+hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Ice")
+hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("XCURSOR_THEME", "Bibata-Modern-Ice")
+hl.env("XCURSOR_SIZE", "24")
 
 ------------------
 ---- MONITOR -----
@@ -91,6 +95,7 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
+hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd("zen-browser"))
 hl.bind(mainMod .. " + ALT + W",  hl.dsp.exec_cmd(randomWallpaper))
 hl.bind(mainMod .. " + CTRL + W", hl.dsp.exec_cmd("~/.local/bin/wall_menu.sh"))
 
@@ -143,13 +148,13 @@ hl.bind("CONTROL + ALT + V", hl.dsp.exec_cmd(
 -- confirmed pattern from official example)
 hl.bind("F3", hl.dsp.exec_cmd("swayosd-client --brightness lower"), { locked = true, repeating = true })
 hl.bind("F4", hl.dsp.exec_cmd("swayosd-client --brightness raise"), { locked = true, repeating = true })
-hl.bind("F5", hl.dsp.exec_cmd("swayosd-client --output-volume mute-toggle"), { locked = true })
+hl.bind("F5", hl.dsp.exec_cmd("swayosd-client --output-volume mute-toggle"))
 hl.bind("F6", hl.dsp.exec_cmd("swayosd-client --output-volume lower"), { locked = true, repeating = true })
 hl.bind("F7", hl.dsp.exec_cmd("swayosd-client --output-volume raise"), { locked = true, repeating = true })
-hl.bind("F8", hl.dsp.exec_cmd("swayosd-client --input-volume mute-toggle"), { locked = true })
-hl.bind("F10", hl.dsp.exec_cmd("wtype -k insert"), { locked = true })
-hl.bind("F11", hl.dsp.exec_cmd("bash ~/.config/hypr/scripts/airplane_mode.sh"), { locked = true })
-hl.bind("F12", hl.dsp.exec_cmd("bash ~/.config/hypr/scripts/airplane_mode.sh"), { locked = true })
+hl.bind("F8", hl.dsp.exec_cmd("swayosd-client --input-volume mute-toggle"))
+hl.bind("F10", hl.dsp.exec_cmd("wtype -k insert"))
+hl.bind("F11", hl.dsp.exec_cmd("bash ~/.config/hypr/scripts/airplane_mode.sh"))
+hl.bind("F12", hl.dsp.exec_cmd("bash ~/.config/hypr/scripts/airplane_mode.sh"))
 
 -------------------
 ---- AUTOSTART ----

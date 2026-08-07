@@ -4,13 +4,14 @@
     "spacing": 0,
     "modules-left": [
         "custom/distro",
-        "hyprland/workspaces"
+        "ext/workspaces"
     ],
     "modules-center": [
         "clock"
     ],
     "modules-right": [
         "network",
+        "bluetooth",
         "pulseaudio",
         "battery",
         "custom/power"
@@ -22,11 +23,11 @@
         "tooltip": false
     },
 
-    "hyprland/workspaces": {
-        "disable-scroll": true,
+    "ext/workspaces": {
         "all-outputs": true,
-        "format": "{id}",
-        "on-click": "activate"
+        "format": "{name}",
+        "on-click": "activate",
+        "sort-by-name": true
     },
 
     // ── Center ──────────────────────────────────────────
@@ -43,6 +44,16 @@
         "format-linked": "󰌹  No IP",
         "tooltip-format": "{ifname}: {ipaddr}\nGateway: {gwaddr}\nStrength: {signalStrength}%",
         "on-click": "bash ~/.config/waybar/scripts/wifi_menu.sh"
+    },
+    "bluetooth": {
+        "format-disabled": "󰂲  Off",
+        "format-off": "󰂲  Off",
+        "format-on": "",
+        "format-connected": "  {device_alias}",
+        "tooltip-format": "{controller_alias}: {status}",
+        "tooltip-format-connected": "{controller_alias}: {status}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}",
+        "on-click": "blueman-manager"
     },
     "pulseaudio": {
         "format": "{icon}  {volume}%",
